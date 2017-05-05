@@ -4,7 +4,6 @@
 
 <div id="container">
   <h1>{{title}}</h1>
-                                            <!-- Can also use appendTodoForm -->
     <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
       <div class="formGroup">
         <input type="text" formControlName="todo" placeholder="Add todo here">
@@ -13,8 +12,8 @@
       </div>
     </form>
     <div class="list">
-      <ul *ngFor="let todo of aListOfTodos">
-        <li><span><i class="fa fa-trash" ng-click=""></i></span>{{todo.todoCML}}</li>
+      <ul>
+        <li *ngFor="let oTodo of aListOfTodos"><span><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>{{oTodo.todoCML}}</li>
       </ul>
     </div>
 </div>

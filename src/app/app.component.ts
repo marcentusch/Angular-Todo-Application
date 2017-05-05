@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component }       from '@angular/core';
 import { FormGroup, ReactiveFormsModule, FormBuilder, Validators,
-  FormControl } from '@angular/forms';
-import { TodoValidators } from './app.customValidators';
-import { TodoService } from './todo.service'
-
+  FormControl }            from '@angular/forms';
+import { TodoValidators }  from './app.customValidators';
+import { TodoService }     from './todo.service'
 
 @Component({
   selector: 'app-root',
@@ -15,9 +14,7 @@ import { TodoService } from './todo.service'
 
 export class AppComponent {
 
-
   private addTodoForm: FormGroup;
-
 
   constructor(fb: FormBuilder, private todoService : TodoService){
     this.addTodoForm = fb.group({
@@ -25,11 +22,8 @@ export class AppComponent {
     })
   };
 
-  title = 'The great todo app';
-
+  title = 'The Great Todo App';
   aListOfTodos = [];
-
-
 
   onRead() {
     this.todoService.getAllTodos().subscribe(response => {
@@ -40,12 +34,11 @@ export class AppComponent {
         }
       });
       console.log(this.aListOfTodos);
-      console.log("Data has been read.");
+      console.log("Data has been read from the server.");
     });
   }
 
-
-  //Adds a todo to the html
+  // Adds a todo to the html
   appendNewTodo(newTodo){
     var todoName = newTodo._value.todo;
     this.aListOfTodos.push({
@@ -53,27 +46,27 @@ export class AppComponent {
     });
   }
 
-  // submitTodoForm(addTodoForm){
-  //   console.log(addTodoForm);
-  //   this.appendNewTodo(addTodoForm);
-  //   this.todoService.postTodo(addTodoForm)
-  //                   .subscribe(addTodos => this.addTodoForm = addTodos)
-  // };
-
-  onCreate(todoCML: String){
-    this.todoService.postTodo(todoCML).subscribe(
-      () => {
-        this.onRead();
-
-      }
-    );
+  // We get the data from HTML form(formData). To be created as a todo object later..
+  onCreate(formData){
+    //     this.aListOfTodos.push({todoCML: formData.get('todo').value, done: false}); // adds the todo directly to the list, instead of getting it form database
+      this.todoService.postTodo(formData.get('todo').value).subscribe(
+        () => {
+          this.onRead();
+        }
+      );
   }
 
-   ngOnInit() {
-     this.onRead();
-    }
+  // We get the todo object(oTodo) from the specified item in the list
+  onDelete(oTodo){
+    this.todoService.deleteTodo(oTodo._id).subscribe( 
+      () => {
+        this.onRead();
+      }
+    )
+  }
 
+  ngOnInit() {
+    this.onRead();
+  }
 
 }
-
-

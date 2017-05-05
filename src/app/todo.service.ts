@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions } from '@angular/http';
+import { Http, Response, RequestOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,16 +10,6 @@ export class TodoService {
   private url = "http://angular2api2.azurewebsites.net/api/internships";
 
   constructor( private http: Http ) { }
-
-
-  // postNewTodo(todo){
-  //   console.log(todo);
-  //   var jTodo = {
-  //      "todoCML" : todo._value.todo,
-  //      "done" : "false"
-  //     };
-  //   return this.http.post(this.url, jTodo).map(this.extractData);
-  // }
 
 postTodo(todoCML): Observable < any > {
   // Here we create the data that goes to the API, like the body in postman
@@ -33,33 +23,29 @@ postTodo(todoCML): Observable < any > {
       (response: Response) => {
         console.log(response);
         return response;
-      }
+      } 
     );
 }
 
 
-
-  // getAllTodos(){
-  //   return this.http.get(this.url)
-  //   .map(this.extractData);
-  // };
-
-  getAllTodos() {
+  getAllTodos(): Observable < any >{
     return this.http.get(this.url)
-    .map((response: Response) => {
+    .map(
+      (response: Response) => {
       return response.json();
-    });
+      } 
+    );
   }
 
-
-  private extractData(res: Response){
-    let body = res.json();
-    console.log(body);
-    return body;
-  };
-
-  deleteTodo(){
-
+  deleteTodo(iTodo): Observable < any >{
+    const url = this.url + "/" + iTodo;
+    return this.http.delete(url)
+      .map(
+        (response: Response) => {
+          console.log("We have deleted a todo!");
+          return response;
+        }
+      )
   }
 
 

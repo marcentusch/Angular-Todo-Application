@@ -1,9 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  height: 100%;
+}
+
 body{
-  background: -webkit-linear-gradient(90deg, #000000 10%, #243B55 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #000000 10%, #243B55 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #000000 10%, #243B55 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #000000 10%, #243B55 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #000000 10%, #243B55 90%);
+  background: -webkit-linear-gradient(0deg, #000000 10%, #243B55 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(0deg, #000000 10%, #243B55 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(0deg, #000000 10%, #243B55 90%); /* IE10 */
+  background:      -o-linear-gradient(0deg, #000000 10%, #243B55 90%); /* Opera 11.10+ */
+  background:         linear-gradient(0deg, #000000 10%, #243B55 90%);
 }
 
