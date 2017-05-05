@@ -1,74 +1,145 @@
-$main-Color: #006064;
+$main-Color1: #0C555E;// old #006064;
+$main-Color2: #FF6761;// old #006064;
+$text-Color1: white; // old #FFAB00;
+$text-Color2: white; // old #FFAB00;
+$text-Field-Color: #f7f7f7;
 
-#container{
-    //font-family: 'Love Ya Like A Sister', cursive;
-    color: #FFAB00;
-    margin: 100px auto;
-    width: 360px;
-    box-shadow: 0 0 3x rgba(0, 0, 0, 0.1);
+.container {
+  color: $text-Color1;
+  margin: 200px auto;
+  width: 700px;
+  box-shadow: 0 0 3x rgba(0, 0, 0, 0.1);
 }
 
-ul{
-    list-style: none;
-    margin: 7px;
-    padding: 0;
+ul {
+  list-style: none;
+  margin: 7px;
+  padding: 0;
 }
 
-h1{
-    background: $main-Color;
-    color: white;
-    margin: 0;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: normal;
+h1 {
+  background: $main-Color1;
+  color: white;
+  margin: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: normal;
+
 }
 
-input{
-    font-size: 25px;
-    color: $main-Color;
-    background-color: #f7f7f7;
-    width: 100%;
-    padding: 13px 13px 13px 20px;
-    box-sizing: border-box;
-    border: 3px solid $main-Color;
+input {
+  font-size: 25px;
+  color: $main-Color1;
+  background-color: $text-Field-Color;
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  border: 3px solid $main-Color1;
 }
 
-input:focus{
-    background: #fff;
-    border: 3px solid $main-Color;
-    outline: none;
+input:focus {
+  background: $text-Field-Color;
+  border: 3px solid $main-Color1;
+  outline: none;
 }
 
-li{
-    padding: 5px;
-    border: none;
-    background: $main-Color;
+li {
+  padding: 5px;
+  background: $main-Color1;
+  text-align: left;
+  min-height: 25px;
+     font-size: 20px;
+
 }
 
-li:nth-child(2n){
-    background: #26A69A;
+li:nth-child(2n) {
+  color: $text-Color2;
+  background: $main-Color2;
 }
 
-li:hover span{
-    width: 40px;
-    opacity: 1.0;
+.updateInput{
+  display: none;
 }
 
-span{
-    background: #e74c3c;
-    height: 23px;
-    margin-right: 20px;
-    text-align: center;
-    color: white;
-    width: 0;
-    display: inline-block;
-    transition: 0.2s linear;
-    opacity: 0;
-    border: none;
+// ================================== Icons ====================================
+
+span {
+  color: white;
+  opacity: 0;
+  border-radius: 6px;
+  height: 0px;
+  width: 40px;
+  border: none;
+  margin-right: 0px;
+  transition: 0.2s linear;
+  cursor: pointer;
+}
+
+#iconContainer{
+  float: left;
+  width: 70px;
+}
+
+.span-trash{
+  background: #e74c3c;
+}
+
+.span-pencil{
+  background: #ffa500;
 }
 
 .completed {
-    color: red;
-    text-decoration: line-through;
+  color: red;
+  text-decoration: line-through;
+}
+
+li:hover span {
+  width: 120px;
+  height: 100%;
+  opacity: 1.0;
+}
+
+.top-icon{
+  width: 100px;
+}
+
+// =============================== Adapt to screen size =======================================
+
+@media screen and (max-width: 480px) {
+       h1{
+         color: orange;
+       } 
+       h1{
+        -ms-transform: rotate(25deg);
+        -webkit-transform: rotate(25deg);
+        transform: rotate(25deg);
+       }
+}
+
+// ========================== ANIMATIONS ===============================
+
+i:hover:not(.fa-check-square) {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

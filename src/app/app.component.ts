@@ -25,6 +25,20 @@ export class AppComponent {
   title = 'The Great Todo App';
   aListOfTodos = [];
 
+  hide = false;
+
+  toggleHide(){
+    console.log(this.hide);
+    if(this.hide == false){
+      this.hide = true
+    }else{
+      this.hide = false;
+    }
+    return this.hide;
+  };
+
+
+
   onRead() {
     this.todoService.getAllTodos().subscribe(response => {
       this.aListOfTodos = response.filter((todo) => {
@@ -75,8 +89,18 @@ export class AppComponent {
     )
   }
 
+  // toggleUpdateInput(){
+  //   var input = document.querySelector(".updateInput");
+  //     input.addEventListener("click", function(){
+  //       this.classList.toggle("showUpdate");
+  //     });
+  // }
+
+
+
   ngOnInit() {
     this.onRead();
+    // this.toggleUpdateInput();
   }
 
 }

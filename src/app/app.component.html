@@ -1,8 +1,11 @@
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- font-family: 'Roboto', sans-serif; -->
 </head>
 
-<div id="container">
+<div class="container">
   <h1>{{title}}</h1>
     <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
       <div class="formGroup">
@@ -14,11 +17,19 @@
     <div class="list">
       <ul>
         <li *ngFor="let oTodo of aListOfTodos">
-          <span><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>
-          <span><i class="fa fa-pencil" (click)="onUpdate(oTodo, testupdate.value)"></i></span>
-          {{oTodo.todoCML}}
+          <div id="todoContainer">
+            <div id="iconContainer">
+              <span class="span-trash top-icon"><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>
+              <span class="span-pencil top-icon pencilHideShow" (click)="toggleHide" ><i class="fa fa-pencil"></i>
+              </span>
+            </div>
+            {{oTodo.todoCML}}
+          </div>
+          <div class="updateInput" *ngIf="toggleHide()">
+             <input #testupdate type="text" placeholder="Update todo here">
+             <span><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
+          </div>
         </li>
-        <input #testupdate type="text" placeholder="Update todo here">
       </ul>
     </div>
 </div>
