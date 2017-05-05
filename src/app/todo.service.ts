@@ -48,6 +48,20 @@ postTodo(todoCML): Observable < any > {
       )
   }
 
+  updateTodo(id, sUpdatedTodo){
+    const url  = this.url + "/" + id;
+    const data = new URLSearchParams();
 
+    data.append('todoCML', sUpdatedTodo);
+    data.append('done', "false");
+
+    return this.http.put(url, data)
+      .map(
+        (response: Response) => {
+          console.log(response);
+          return response;
+        }
+      );
+  }
 
 }

@@ -13,7 +13,12 @@
     </form>
     <div class="list">
       <ul>
-        <li *ngFor="let oTodo of aListOfTodos"><span><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>{{oTodo.todoCML}}</li>
+        <li *ngFor="let oTodo of aListOfTodos">
+          <span><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>
+          <span><i class="fa fa-pencil" (click)="onUpdate(oTodo, testupdate.value)"></i></span>
+          {{oTodo.todoCML}}
+        </li>
+        <input #testupdate type="text" placeholder="Update todo here">
       </ul>
     </div>
 </div>

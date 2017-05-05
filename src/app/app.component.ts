@@ -65,6 +65,16 @@ export class AppComponent {
     )
   }
 
+  // Whatever user clicks, get object
+  // Extract ID out of object
+  onUpdate(oTodo, sUpdatedTodo: String){
+    this.todoService.updateTodo(oTodo._id, sUpdatedTodo).subscribe(
+      () => {
+        this.onRead();
+      }
+    )
+  }
+
   ngOnInit() {
     this.onRead();
   }
