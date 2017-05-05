@@ -4,16 +4,17 @@
 
 <div id="container">
   <h1>{{title}}</h1>
-    <form [formGroup]="addTodoForm" (ngSubmit)="submitTodoForm(addTodoForm)">
+                                            <!-- Can also use appendTodoForm -->
+    <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
       <div class="formGroup">
         <input type="text" formControlName="todo" placeholder="Add todo here">
         <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
         <input type="submit">
       </div>
     </form>
-    <div class="list">  
-      <ul *ngFor="let todo of aListOfTodos">    
-        <li><span><i class="fa fa-trash" ng-click=""></i></span>{{todo.name}}</li>
+    <div class="list">
+      <ul *ngFor="let todo of aListOfTodos">
+        <li><span><i class="fa fa-trash" ng-click=""></i></span>{{todo.todoCML}}</li>
       </ul>
     </div>
 </div>

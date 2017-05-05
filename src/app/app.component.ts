@@ -25,82 +25,55 @@ export class AppComponent {
     })
   };
 
-
   title = 'The great todo app';
-  
-  aListOfTodos = [
-    {name: "Kill Voldemort", done: false},
-    {name: "Learn Flipendo", done: false},
-    {name: "Find Nevilles toad", done: false},
-    {name: "Brew a potion", done: false},
-    {name: "Slap Malfoy in the butt", done: false }
-  ];
+
+  aListOfTodos = [];
 
 
 
-
-  incompleteTodos() : number {
-    let count: number = 0;
-    for(let i=0; i < this.aListOfTodos.length; i++) {
-      if (!this.aListOfTodos[i].done) {
-        count++;
-      }
-    }
-    console.log(count);
-    return count;
-  }
-
-
-  getTodos(){
-
-    let oaAllTodos = this.todoService.getAllTodos();
-    console.log(oaAllTodos);
-    //jAllTodos.subscribe();
-
-    let newArrayOfThings = []; //Bliver vi nød til fordi at API'en forvirre og vi kan ikke printe vores array ud
-    
-    for(let i in oaAllTodos){
-      console.log(i);
-    }
-
-    // oaAllTodos.forEach(function(oTodo){
-    //   newArrayOfThings.push(oTodo);
-    //   console.log(oTodo);
-    // });
-    console.log(newArrayOfThings);
-
-    //append js object to table
-    // console.log(oaAllTodos);
-
-    // oaAllTodos.forEach(function(todo){
-    //   console.log(todo);
-    //   this.appendNewTodo(todo);
-    // });
-  };
-
-
-
-  appendNewTodo(newTodo){
-    var todoName = newTodo._value.todo;
-    this.aListOfTodos.push({
-      // Fjern done false og opret det som et object som appendNewTodo laver lort med
-      name: todoName, done: false
+  onRead() {
+    this.todoService.getAllTodos().subscribe(response => {
+      this.aListOfTodos = response.filter((todo) => {
+        if (todo.todoCML) {
+          this.aListOfTodos.push(todo);
+          return todo;
+        }
+      });
+      console.log(this.aListOfTodos);
+      console.log("Data has been read.");
     });
   }
 
 
-  submitTodoForm(addTodoForm){
-    console.log(addTodoForm);
-    this.appendNewTodo(addTodoForm);
-    this.todoService.postNewTodo(addTodoForm)
-                    .subscribe(addTodos => this.addTodoForm = addTodos)};
+  //Adds a todo to the html
+  appendNewTodo(newTodo){
+    var todoName = newTodo._value.todo;
+    this.aListOfTodos.push({
+      todoCML: todoName, done: false
+    });
+  }
 
+  // submitTodoForm(addTodoForm){
+  //   console.log(addTodoForm);
+  //   this.appendNewTodo(addTodoForm);
+  //   this.todoService.postTodo(addTodoForm)
+  //                   .subscribe(addTodos => this.addTodoForm = addTodos)
+  // };
+
+  onCreate(todoCML: String){
+    this.todoService.postTodo(todoCML).subscribe(
+      () => {
+        this.onRead();
+
+      }
+    );
+  }
 
    ngOnInit() {
-     this.getTodos();
+     this.onRead();
     }
 
-    
+
 }
 
 
