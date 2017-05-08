@@ -38,7 +38,6 @@ export class AppComponent {
   };
 
 
-
   onRead() {
     this.todoService.getAllTodos().subscribe(response => {
       this.aListOfTodos = response.filter((todo) => {

@@ -6,28 +6,24 @@
 </head>
 
 <div class="container">
-  <h1>{{title}}</h1>
+  <h1>{{title}} <button #editTodo class="" (click)="toggleHide()" ><i class="fa fa-pencil"></i> </button> </h1>
     <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
       <div class="formGroup">
-        <input type="text" formControlName="todo" placeholder="Add todo here">
+        <input id="todoInput" type="text" formControlName="todo" placeholder="Add todo here">
         <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
-        <input type="submit">
+        <input id="submitBtn" type="submit">
       </div>
     </form>
     <div class="list">
       <ul>
         <li *ngFor="let oTodo of aListOfTodos">
           <div id="todoContainer">
-            <div id="iconContainer">
-              <span class="span-trash top-icon"><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>
-              <span class="span-pencil top-icon pencilHideShow" (click)="toggleHide" ><i class="fa fa-pencil"></i>
-              </span>
-            </div>
-            {{oTodo.todoCML}}
+            <p>{{oTodo.todoCML}} <span class="span-trash top-icon"><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>  </p>
           </div>
-          <div class="updateInput" *ngIf="toggleHide()">
-             <input #testupdate type="text" placeholder="Update todo here">
-             <span><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
+          <div class="updateInput" *ngIf="hide == true">
+            <hr>
+             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
+             <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
           </div>
         </li>
       </ul>
