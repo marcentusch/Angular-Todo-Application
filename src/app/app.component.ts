@@ -25,16 +25,13 @@ export class AppComponent {
   title = 'The Great Todo App';
   aListOfTodos = [];
 
-  hide = false;
-
-  toggleHide(){
-    console.log(this.hide);
-    if(this.hide == false){
-      this.hide = true
+  toggleHide(oTodo){
+    if(oTodo.hideMe == false){
+      oTodo.hideMe = true
     }else{
-      this.hide = false;
+      oTodo.hideMe = false;
     }
-    return this.hide;
+    return oTodo.hideMe;
   };
 
 
@@ -42,6 +39,7 @@ export class AppComponent {
     this.todoService.getAllTodos().subscribe(response => {
       this.aListOfTodos = response.filter((todo) => {
         if (todo.todoCML) {
+          todo.hideMe = true;
           this.aListOfTodos.push(todo);
           return todo;
         }

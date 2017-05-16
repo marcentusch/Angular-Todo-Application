@@ -1,12 +1,53 @@
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <!-- font-family: 'Roboto', sans-serif; -->
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<div class="container">
-  <h1>{{title}} <button #editTodo class="" (click)="toggleHide()" ><i class="fa fa-pencil"></i> </button> </h1>
+
+<div id="notebook-paper">
+  <h3> MY TODO LIST </h3>
+
+  <div class="list">
+    <ul>
+
+      <!-- Todo Items -->
+      <li *ngFor="let oTodo of aListOfTodos" >
+          <p> {{oTodo.todoCML}} 
+            <span class="listIcons">
+              <i class="fa fa-trash" (click)="onDelete(oTodo)"></i>
+            </span>  
+            <span class="listIcons" #editTodo (click)="toggleHide(oTodo)" >
+              <i class="fa fa-pencil"></i>
+            </span>
+          </p>
+          <div class="updateInput" *ngIf="oTodo.hideMe == false">
+             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
+             <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
+          </div>
+        </li>
+
+        <!-- Input form -->
+        <li>
+          <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
+            <div class="formGroup" id="input-line">
+              <input id="todoInput" type="text" formControlName="todo" >
+              <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
+              <button type="submit" id="addButton"> Add </button>
+            </div>
+          </form>
+        </li>
+    </ul>
+    
+  </div>
+</div>
+
+
+
+
+
+<!--<div class="container">
+  <h1>{{title}} <button #editTodo class="" (click)="toggleHide(oTodo)" ><i class="fa fa-pencil"></i></button> </h1>
     <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)" id="test2">
       <div class="formGroup">
         <input id="todoInput" type="text" formControlName="todo" placeholder="Add todo here">
@@ -19,7 +60,7 @@
         <li *ngFor="let oTodo of aListOfTodos">
           <div id="todoContainer">
             <p>{{oTodo.todoCML}} <span class="span-trash top-icon"><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>  </p>
-          </div>
+          </div>  
           <div class="updateInput" *ngIf="hide == true">
             <hr>
              <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
@@ -28,4 +69,4 @@
         </li>
       </ul>
     </div>
-</div>
+</div>-->
