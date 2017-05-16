@@ -12,33 +12,34 @@
     <ul>
 
       <!-- Todo Items -->
-      <li *ngFor="let oTodo of aListOfTodos" >
-          <p> {{oTodo.todoCML}} 
-            <span class="listIcons">
+      <li *ngFor="let oTodo of aListOfTodos">
+        <div id="todo-content">
+          <p *ngIf="oTodo.hideMe == true"> {{oTodo.todoCML}}</p>
+          <div class="updateInput" *ngIf="oTodo.hideMe == false">
+            <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
+            <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <span class="listIcons">
               <i class="fa fa-trash" (click)="onDelete(oTodo)"></i>
-            </span>  
-            <span class="listIcons" #editTodo (click)="toggleHide(oTodo)" >
+            </span>
+        <span class="listIcons" #editTodo (click)="toggleHide(oTodo)">
               <i class="fa fa-pencil"></i>
             </span>
-          </p>
-          <div class="updateInput" *ngIf="oTodo.hideMe == false">
-             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
-             <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
-          </div>
-        </li>
+      </li>
 
-        <!-- Input form -->
-        <li>
-          <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
-            <div class="formGroup" id="input-line">
-              <input id="todoInput" type="text" formControlName="todo" >
-              <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
-              <button type="submit" id="addButton"> Add </button>
-            </div>
-          </form>
-        </li>
+      <!-- Input form -->
+      <li>
+        <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
+          <div class="formGroup" id="input-line">
+            <input id="todoInput" type="text" formControlName="todo">
+            <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
+            <button type="submit" id="addButton"> Add </button>
+          </div>
+        </form>
+      </li>
     </ul>
-    
+
   </div>
 </div>
 

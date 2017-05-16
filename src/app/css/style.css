@@ -43,17 +43,20 @@
     #notebook-paper ul li:hover {
       opacity: .9; }
   #notebook-paper p {
-    font-size: 20px; }
+    font-size: 20px;
+    user-select: none; }
+
+#todo-content {
+  display: inline-block; }
 
 #todoInput, #addButton, .listIcons {
   position: relative;
   top: -4px; }
 
 input {
-  background: #F8ECC2;
+  background: transparent;
   border: none;
-  font-size: 16px;
-  width: 90%;
+  font-size: 20px;
   margin: 0;
   padding: 0; }
 
