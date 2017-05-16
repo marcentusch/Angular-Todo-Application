@@ -14,6 +14,7 @@ import { TodoService }     from './todo.service'
 
 export class AppComponent {
 
+
   private addTodoForm: FormGroup;
 
   constructor(fb: FormBuilder, private todoService : TodoService){
@@ -24,6 +25,7 @@ export class AppComponent {
 
   title = 'The Great Todo App';
   aListOfTodos = [];
+
 
   toggleHide(oTodo){
     if(oTodo.hideMe == false){
@@ -101,3 +103,5 @@ export class AppComponent {
   }
 
 }
+
+

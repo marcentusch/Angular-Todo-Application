@@ -11,15 +11,15 @@
   <div class="list">
     <ul>
 
-      <!-- Todo Items -->
+      <!-- Todo Items --> 
       <li *ngFor="let oTodo of aListOfTodos">
         <div id="todo-content">
-          <p *ngIf="oTodo.hideMe == true"> {{oTodo.todoCML}}</p>
-          <div class="updateInput" *ngIf="oTodo.hideMe == false">
+          <p *ngIf="oTodo.hideMe == true" (click)="oTodo.done = !oTodo.done;" [ngClass]="{completed: !oTodo.done}" > {{oTodo.todoCML}}</p>
+          <div *ngIf="oTodo.hideMe == false" class="updateInput" >
             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
             <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
           </div>
-        </div>
+        </div> 
         <span class="listIcons">
               <i class="fa fa-trash" (click)="onDelete(oTodo)"></i>
             </span>
