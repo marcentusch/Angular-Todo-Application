@@ -7,7 +7,7 @@
 
 <div class="container">
   <h1>{{title}} <button #editTodo class="" (click)="toggleHide()" ><i class="fa fa-pencil"></i> </button> </h1>
-    <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
+    <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)" id="test2">
       <div class="formGroup">
         <input id="todoInput" type="text" formControlName="todo" placeholder="Add todo here">
         <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
