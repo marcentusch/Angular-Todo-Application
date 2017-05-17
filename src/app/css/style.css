@@ -110,5 +110,8 @@ li:hover .listIcons, #addButton {
     transform: translate3d(-3px, 0, 0); }
   40%, 60% {
     transform: translate3d(3px, 0, 0); } }
+#sticky-logo {
+  height: 150px;
+  width: 150px; }
 
 /*# sourceMappingURL=style.css.map */
