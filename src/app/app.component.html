@@ -5,7 +5,7 @@
 </head>
 
 <!--svg logo-->
-<img id="sticky-logo" src="src/resource/stickylogo.svg"/> 
+<!--<img id="sticky-logo" src="src/resource/stickylogo.svg"/> -->
 
 <div id="notebook-paper">
   <h3> MY TODO LIST </h3>
@@ -22,12 +22,13 @@
             <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
           </div>
         </div> 
+        <!-- Icons to the right -->
         <span class="listIcons">
-              <i class="fa fa-trash" (click)="onDelete(oTodo)"></i>
-            </span>
+          <i class="fa fa-trash" (click)="onDelete(oTodo)"></i>
+        </span>
         <span class="listIcons" #editTodo (click)="toggleHide(oTodo)">
-              <i class="fa fa-pencil"></i>
-            </span>
+          <i class="fa fa-pencil"></i>
+        </span>
       </li>
 
       <!-- Input form -->

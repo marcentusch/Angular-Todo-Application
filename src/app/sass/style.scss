@@ -66,7 +66,10 @@
     // Everyone here gets pushed a bit up to be centered on the line instead of resting on the bottom 
     position: relative; 
     top: -4px;
+    outline: none;
 }
+
+
 
 #editTodo {
   width: 340px;
@@ -116,6 +119,11 @@ li:hover .listIcons, #addButton {
   opacity: 1;
 }
 
+.fa-trash {
+  // color: #d2722d;
+}
+
+
 .completed {
   text-decoration: line-through;
 }
@@ -151,8 +159,6 @@ li:hover .listIcons, #addButton {
     transform: translate3d(3px, 0, 0);
   }
 }
-
-
 
 // =================== Logo ==================
 

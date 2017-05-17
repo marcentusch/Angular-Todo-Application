@@ -50,7 +50,8 @@
 
 #todoInput, #addButton, .listIcons {
   position: relative;
-  top: -4px; }
+  top: -4px;
+  outline: none; }
 
 #editTodo {
   width: 340px; }
