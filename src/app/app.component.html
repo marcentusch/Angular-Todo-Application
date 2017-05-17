@@ -32,7 +32,7 @@
       <li>
         <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
           <div class="formGroup" id="input-line">
-            <input id="todoInput" type="text" formControlName="todo">
+            <input id="todoInput" type="text" value=" " formControlName="todo">
             <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
             <button type="submit" id="addButton"> Add </button>
           </div>

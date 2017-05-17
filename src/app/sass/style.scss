@@ -65,7 +65,11 @@
 #todoInput, #addButton, .listIcons {
     // Everyone here gets pushed a bit up to be centered on the line instead of resting on the bottom 
     position: relative; 
-    top: -4px
+    top: -4px;
+}
+
+#editTodo {
+  width: 340px;
 }
 
 
@@ -76,7 +80,7 @@ input {
     font-size: 20px;
     width: 90%;
     margin: 0;
-    padding: 0;
+    text-indent: 5px;    
 }
 
 button {
