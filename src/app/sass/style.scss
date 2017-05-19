@@ -168,6 +168,11 @@ li:hover .listIcons, #addButton {
   position: absolute;
   top: 50px;
   right: 82%;
+
+  @media screen and (max-width: 806px){
+    visibility: hidden;
+    display: none;
+  }
 }
 
 
