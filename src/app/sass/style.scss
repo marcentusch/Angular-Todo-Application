@@ -42,7 +42,7 @@
     padding-left: 0;
 
     li {
-      margin-bottom: 2.5px; // Spacing between each todo item
+      margin-bottom: 2px; // Spacing between each todo item
       transition: .3s;
     }
 
@@ -166,7 +166,7 @@ li:hover .listIcons, #addButton {
   width: 220px;
 
   position: absolute;
-  top: 50px;
+  top: 70px;
   right: 82%;
 
   @media screen and (max-width: 806px){

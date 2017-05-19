@@ -15,7 +15,7 @@ html{
         background: url("resource/table-mobile-506x900.png");
     }
 }
-@media only screen and (min-width:700px) {
+@media only screen and (min-width:506px) {
     body {
         background: url("resource/table-1600x900.png");
     }
@@ -23,5 +23,5 @@ html{
 
 body{
   background-size: cover;
-  /*background-attachment: fixed;*/
+  background-attachment: fixed;
 }
