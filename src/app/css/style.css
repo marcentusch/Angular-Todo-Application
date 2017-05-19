@@ -18,7 +18,6 @@
   -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
   -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4), 0px 0px 7px rgba(0, 0, 0, 0.3); }
   #notebook-paper:before {
     content: '';
@@ -61,8 +60,7 @@ input {
   border: none;
   font-size: 20px;
   width: 90%;
-  margin: 0;
-  text-indent: 5px; }
+  margin: 0; }
 
 button {
   width: 9%;
@@ -112,7 +110,10 @@ li:hover .listIcons, #addButton {
   40%, 60% {
     transform: translate3d(3px, 0, 0); } }
 #sticky-logo {
-  height: 150px;
-  width: 150px; }
+  height: 220px;
+  width: 220px;
+  position: absolute;
+  top: 50px;
+  right: 82%; }
 
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@
 </head>
 
 <!--svg logo-->
-<img id="sticky-logo" src="src/resource/stickyLogoShadow.svg"/> 
+<img id="sticky-logo" src="src/resource/stickyLogoShadow.svg"/>
 
 <div id="notebook-paper">
   <h3> MY TODO LIST </h3>
@@ -49,28 +49,3 @@
 
 
 
-
-<!--<div class="container">
-  <h1>{{title}} <button #editTodo class="" (click)="toggleHide(oTodo)" ><i class="fa fa-pencil"></i></button> </h1>
-    <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)" id="test2">
-      <div class="formGroup">
-        <input id="todoInput" type="text" formControlName="todo" placeholder="Add todo here">
-        <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> too long todo </div>
-        <input id="submitBtn" type="submit">
-      </div>
-    </form>
-    <div class="list">
-      <ul>
-        <li *ngFor="let oTodo of aListOfTodos">
-          <div id="todoContainer">
-            <p>{{oTodo.todoCML}} <span class="span-trash top-icon"><i class="fa fa-trash" (click)="onDelete(oTodo)"></i></span>  </p>
-          </div>  
-          <div class="updateInput" *ngIf="hide == true">
-            <hr>
-             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
-             <span class="checkIcon"><i class="fa fa-check-square" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i></span>
-          </div>
-        </li>
-      </ul>
-    </div>
-</div>-->
