@@ -8,23 +8,20 @@ html{
   height: 100%;
 }
 
-body{
-  background-size: cover;
-  background-attachment: fixed;
-}
+
 /*only downloads and sets the image which fits the screen*/
 @media only screen and (max-width: 506px) {
     body {
         background: url("resource/table-mobile-506x900.png");
     }
 }
-@media only screen and (min-width: 506px) and (max-width: 2500px) {
+@media only screen and (min-width:700px) {
     body {
         background: url("resource/table-1600x900.png");
     }
 }
-@media only screen and (min-width: 2500px) {
-    body {
-        background: url("resource/table-2832x1593.png");
-    }
+
+body{
+  background-size: cover;
+  /*background-attachment: fixed;*/
 }
