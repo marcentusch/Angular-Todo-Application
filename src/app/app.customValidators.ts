@@ -5,7 +5,7 @@ export class TodoValidators{
     static limitChars(){
 
         return function(control: FormControl){
-            if(control.value.match(/[0-9]{20}/)) {
+            if(control.value.match(/[^a-zA-Z0-9]/)) {
                     console.log("Error with validator");
                     return {'limitError': true}
             }
@@ -13,5 +13,3 @@ export class TodoValidators{
     }
 
 }
-
-

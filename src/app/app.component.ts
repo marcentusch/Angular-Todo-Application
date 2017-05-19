@@ -16,6 +16,8 @@ export class AppComponent {
 
 
   private addTodoForm: FormGroup;
+  private oTodo;
+  private todoInput = "";
 
   constructor(fb: FormBuilder, private todoService : TodoService){
     this.addTodoForm = fb.group({
@@ -28,11 +30,11 @@ export class AppComponent {
 
 
   toggleHide(oTodo){
-    if(oTodo.hideMe == false){
-      oTodo.hideMe = true
-    }else{
-      oTodo.hideMe = false;
+    if(this.oTodo != null && this.oTodo!=oTodo){
+      this.oTodo.hideMe = true;
     }
+    oTodo.hideMe = !oTodo.hideMe;
+    this.oTodo = oTodo;
     return oTodo.hideMe;
   };
 
@@ -67,6 +69,7 @@ export class AppComponent {
           this.onRead();
         }
       );
+          this.todoInput = "";
   }
 
   // We get the todo object(oTodo) from the specified item in the list
