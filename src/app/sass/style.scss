@@ -4,11 +4,39 @@
   margin: 0;
 }
 
+
+// ========================== NAVBAR =================================
+.ul-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  top: 0;
+  background-color: #333;
+
+  li{
+    float:left;
+
+    a{
+      color: white; 
+      display: block;
+      padding: 7px 14px;
+      text-align: center;
+    }
+  }
+}
+
+
+
+// ========================== Middle stuff styling =====================
+
 #notebook-paper {
   width:500px;
   height:622px;
   background: linear-gradient(to bottom, #F8ECC2 29px,#00b0d7 1px);
-  margin: 20px auto;
+  margin: 70px auto;
   background-size: 100% 30px;
   position:relative;
   padding-top:0;
@@ -61,6 +89,7 @@
     display: inline-block;
 }
 
+
 #todoInput, #addButton, .listIcons {
     // Everyone here gets pushed a bit up to be centered on the line instead of resting on the bottom
     position: relative; 
@@ -69,11 +98,9 @@
 }
 
 
-
 #editTodo {
   width: 340px;
 }
-
 
 
 input {

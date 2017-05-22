@@ -3,11 +3,28 @@
   color: #333333;
   margin: 0; }
 
+.ul-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+  top: 0;
+  background-color: #333; }
+  .ul-nav li {
+    float: left; }
+    .ul-nav li a {
+      color: white;
+      display: block;
+      padding: 7px 14px;
+      text-align: center; }
+
 #notebook-paper {
   width: 500px;
   height: 622px;
   background: linear-gradient(to bottom, #F8ECC2 29px, #00b0d7 1px);
-  margin: 20px auto;
+  margin: 70px auto;
   background-size: 100% 30px;
   position: relative;
   padding-top: 0;
