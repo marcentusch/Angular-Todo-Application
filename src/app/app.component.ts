@@ -16,13 +16,17 @@ export class AppComponent {
 
 
   private addTodoForm: FormGroup;
+  private oldTodoForm: FormGroup;
   private oTodo;
   private todoInput = "";
 
   constructor(fb: FormBuilder, private todoService : TodoService){
-    this.addTodoForm = fb.group({
+    this.oldTodoForm = fb.group({
       'todo' : ["", TodoValidators.limitChars()]
-    })
+    }),
+    this.addTodoForm = fb.group({
+      'addTodo' : ["", TodoValidators.limitChars()]
+    });
   };
 
   title = 'The Great Todo App';
