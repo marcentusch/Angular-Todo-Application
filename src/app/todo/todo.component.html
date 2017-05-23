@@ -14,14 +14,15 @@
     <ul>
 
       <!-- Todo Items --> 
-      <li *ngFor="let oTodo of aListOfTodos">
+      <li  [formGroup]="oldTodoForm" *ngFor="let oTodo of aListOfTodos">
         <div id="todo-content">
           <p *ngIf="oTodo.hideMe == true" (click)="oTodo.done = !oTodo.done;" [ngClass]="{completed: !oTodo.done}" > {{oTodo.todoCML}}</p>
-          <div *ngIf="oTodo.hideMe == false" class="updateInput" >
-            <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}}>
-            <span class="checkIcon">
-              <i class="fa fa-floppy-o" (click)="onUpdate(oTodo, testupdate.value)" aria-hidden="true"></i>
-            </span>
+            <div *ngIf="oTodo.hideMe == false" class="updateInput formGroup" >
+            <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}} formControlName="todo">
+            <div [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"> no letters </div>
+            <span [hidden]="oldTodoForm.controls.todo.hasError('limitError')"onclick="onUpdate(oTodo, testupdate.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
+            <span [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
+
           </div>
         </div> 
         
@@ -38,9 +39,9 @@
       <li>
         <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
           <div class="formGroup" id="input-line">
-            <input id="todoInput" type="text" value=" " formControlName="todo" maxlength="35" [(ngModel)]="todoInput">
-            <div [hidden]="!addTodoForm.controls.todo.hasError('limitError')"> no letters </div>
-            <button type="submit" id="addButton"> Add </button>
+            <input id="todoInput" type="text" value=" " formControlName="addTodo" maxlength="35" [(ngModel)]="todoInput">
+            <div [hidden]="!addTodoForm.controls.addTodo.hasError('limitError')"> no letters </div>
+            <button [disabled]="addTodoForm.controls.addTodo.hasError('limitError')" type="submit" id="addButton"> Add </button>
           </div>
         </form>
       </li>
