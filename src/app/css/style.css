@@ -108,8 +108,11 @@ li:hover .listIcons, #addButton {
 .completed {
   text-decoration: line-through; }
 
-.checkIcon {
-  float: left; }
+.editIcon {
+  text-align: center;
+  float: right; }
+  .editIcon i {
+    font-size: 20px; }
 
 .fa-trash:hover {
   animation: shake 0.92s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;

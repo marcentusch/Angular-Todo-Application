@@ -17,12 +17,11 @@
       <li  [formGroup]="oldTodoForm" *ngFor="let oTodo of aListOfTodos">
         <div id="todo-content">
           <p *ngIf="oTodo.hideMe == true" (click)="oTodo.done = !oTodo.done;" [ngClass]="{completed: !oTodo.done}" > {{oTodo.todoCML}}</p>
-            <div *ngIf="oTodo.hideMe == false" class="updateInput formGroup" >
+          <div *ngIf="oTodo.hideMe == false" class="updateInput formGroup" >
             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}} formControlName="todo">
             <div [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"> no letters </div>
-            <span [hidden]="oldTodoForm.controls.todo.hasError('limitError')"onclick="onUpdate(oTodo, testupdate.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
-            <span [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
-
+            <span class="editIcon" [hidden]="oldTodoForm.controls.todo.hasError('limitError')" (click)="onUpdate(oTodo, testupdate.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
+            <span class="editIcon" [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
           </div>
         </div> 
         

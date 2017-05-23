@@ -153,8 +153,13 @@ li:hover .listIcons, #addButton {
   text-decoration: line-through;
 }
 
-.checkIcon {
-  float: left;
+
+.editIcon {
+  text-align: center;
+  float:right;
+  i{
+    font-size: 20px;
+  }
 }
 
 
