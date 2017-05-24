@@ -1,9 +1,3 @@
-<head>
-  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-
 <!--svg logo-->
 <img id="sticky-logo" src="src/resource/stickyLogo.svg"/>
 
@@ -19,7 +13,7 @@
           <p *ngIf="oTodo.hideMe == true" (click)="oTodo.done = !oTodo.done;" [ngClass]="{completed: !oTodo.done}" > {{oTodo.todoCML}}</p>
           <div *ngIf="oTodo.hideMe == false" class="updateInput formGroup" >
             <input #testupdate id="editTodo" type="text" value={{oTodo.todoCML}} placeholder={{oTodo.todoCML}} formControlName="todo">
-            <div [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"> no letters </div>
+            <div [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"> Only letters allowed! </div>
             <span class="editIcon" [hidden]="oldTodoForm.controls.todo.hasError('limitError')" (click)="onUpdate(oTodo, testupdate.value)"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
             <span class="editIcon" [hidden]="!oldTodoForm.controls.todo.hasError('limitError')"><i class="fa fa-floppy-o" aria-hidden="true"></i></span>
           </div>
@@ -39,7 +33,7 @@
         <form [formGroup]="addTodoForm" (ngSubmit)="onCreate(addTodoForm)">
           <div class="formGroup" id="input-line">
             <input id="todoInput" type="text" value=" " formControlName="addTodo" maxlength="35" [(ngModel)]="todoInput">
-            <div [hidden]="!addTodoForm.controls.addTodo.hasError('limitError')"> no letters </div>
+            <div [hidden]="!addTodoForm.controls.addTodo.hasError('limitError')"> Only letters allowed! </div>
             <button [disabled]="addTodoForm.controls.addTodo.hasError('limitError')" type="submit" id="addButton"> Add </button>
           </div>
         </form>

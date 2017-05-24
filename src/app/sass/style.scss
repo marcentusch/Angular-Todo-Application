@@ -4,8 +4,10 @@
   margin: 0;
 }
 
+// **********************************
+// ************* NAVBAR *************
+// **********************************
 
-// ========================== NAVBAR =================================
 .ul-nav {
   list-style-type: none;
   margin: 0;
@@ -16,21 +18,23 @@
   top: 0;
   background-color: #333;
 
-  li{
+  li {
     float:left;
+    margin-left: 10px;
 
-    a{
+    a {
       color: white; 
       display: block;
       padding: 7px 14px;
       text-align: center;
     }
+
   }
 }
 
-
-
-// ========================== Middle stuff styling =====================
+// ******************************************
+// ************* MIDDLE STYLING *************
+// ******************************************
 
 #notebook-paper {
   width:500px;
@@ -48,17 +52,18 @@
   -moz-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   -ms-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
   box-shadow:5px 5px 5px rgba(0,0,0,.4),0px 0px 7px rgba(0,0,0,.3);
-  &:before {
-    content:'';
-    display:block;
-    position:absolute;
-    z-index:1;
-    top:0;
-    left:60px;
-    height:100%;
-    width: 1px;
-    background:#db4034;
-  }
+
+    &:before {
+      content:'';
+      display:block;
+      position:absolute;
+      z-index:1;
+      top:0;
+      left:60px;
+      height:100%;
+      width: 1px;
+      background:#db4034;
+    }
 
   h3 {
     margin: 5px 0 0 0; 
@@ -89,19 +94,16 @@
     display: inline-block;
 }
 
-
 #todoInput, #addButton, .listIcons {
-    // Everyone here gets pushed a bit up to be centered on the line instead of resting on the bottom
+    // Everything here gets pushed a bit up to be centered on the line instead of resting on the bottom
     position: relative; 
     top: -4px;
     outline: none;
 }
 
-
 #editTodo {
   width: 340px;
 }
-
 
 input {
     background: transparent;
@@ -130,7 +132,10 @@ li:hover #addButton {
   color: rgba(0,0,0,1);
 }
 
-// ================================ ICON STUFF HERE ========================
+// *********************************
+// ************* ICONS *************
+// *********************************
+
 .listIcons {
   float: right;
   margin: 0 5px;
@@ -144,15 +149,9 @@ li:hover .listIcons, #addButton {
   opacity: 1;
 }
 
-.fa-trash {
-  // color: #d2722d;
-}
-
-
 .completed {
   text-decoration: line-through;
 }
-
 
 .editIcon {
   text-align: center;
@@ -162,9 +161,10 @@ li:hover .listIcons, #addButton {
   }
 }
 
+// *************************************
+// ************* ANIMATION *************
+// *************************************
 
-
-// ================================== Animation ==============================
 .fa-trash:hover {
   animation: shake 0.92s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
@@ -190,9 +190,11 @@ li:hover .listIcons, #addButton {
   }
 }
 
-// =================== Logo ==================
+// ************************************
+// ************* SVG-LOGO *************
+// ************************************
 
-// En sticky note er ca 7,5 m2, en kaffe kop er normalt 9cm i diameter
+// En sticky note er ca 7,5 cm2, en kaffe kop er normalt 9cm i diameter
 #sticky-logo{
   height: 220px;
   width: 220px;
@@ -208,5 +210,3 @@ li:hover .listIcons, #addButton {
     display: none;
   }
 }
-
-
