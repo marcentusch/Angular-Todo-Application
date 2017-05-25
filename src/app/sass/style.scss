@@ -17,6 +17,7 @@
   overflow: hidden;
   top: 0;
   background-color: #333;
+  z-index: 999;
 
   li {
     float:left;
@@ -204,9 +205,10 @@ li:hover .listIcons, #addButton {
   right: 82%;
   transform: rotate(10deg);
 
-
   @media screen and (max-width: 806px){
-    visibility: hidden;
-    display: none;
+    top: -40px;
+    right: 20%;
+    transform: scale(0.3);
   }
+
 }

@@ -11,9 +11,11 @@
   width: 100%;
   overflow: hidden;
   top: 0;
-  background-color: #333; }
+  background-color: #333;
+  z-index: 999; }
   .ul-nav li {
-    float: left; }
+    float: left;
+    margin-left: 10px; }
     .ul-nav li a {
       color: white;
       display: block;
@@ -138,7 +140,8 @@ li:hover .listIcons, #addButton {
   transform: rotate(10deg); }
   @media screen and (max-width: 806px) {
     #sticky-logo {
-      visibility: hidden;
-      display: none; } }
+      top: -40px;
+      right: 20%;
+      transform: scale(0.3); } }
 
 /*# sourceMappingURL=style.css.map */
