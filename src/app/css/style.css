@@ -11,7 +11,7 @@
   width: 100%;
   overflow: hidden;
   top: 0;
-  background-color: #333;
+  background-color: #333333;
   z-index: 999; }
   .ul-nav li {
     float: left;
@@ -34,10 +34,10 @@
   padding-right: 5px;
   overflow: hidden;
   border-radius: 5px;
-  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
-  -ms-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 0px 0px 6px rgba(0, 0, 0, 0.2);
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4), 0px 0px 7px rgba(0, 0, 0, 0.3); }
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4), 0px 0px 7px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4), 0px 0px 7px rgba(0, 0, 0, 0.4);
+  -ms-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4), 0px 0px 7px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4), 0px 0px 7px rgba(0, 0, 0, 0.4); }
   #notebook-paper:before {
     content: '';
     display: block;

@@ -1,6 +1,18 @@
+// Variables
+$main-color: #333333; // This color is supposedly easier on the eyes and easier to read
+$notebook-line: #db4034;
+
+// Mixins
+@mixin shadow($shadowsize){
+  -webkit-box-shadow:$shadowsize $shadowsize $shadowsize rgba(0,0,0,.4),0px 0px 7px rgba(0,0,0,.4);
+  -moz-box-shadow:$shadowsize $shadowsize $shadowsize rgba(0,0,0,.4),0px 0px 7px rgba(0,0,0,.4);
+  -ms-box-shadow:$shadowsize $shadowsize $shadowsize rgba(0,0,0,.4),0px 0px 7px rgba(0,0,0,.4);
+  box-shadow:$shadowsize $shadowsize $shadowsize rgba(0,0,0,.4),0px 0px 7px rgba(0,0,0,.4);
+}
+
 * {
   font-family: 'Patrick Hand', cursive;
-  color: #333333; // This color is supposedly easier on the eyes and easier to read
+  color: $main-color; 
   margin: 0;
 }
 
@@ -16,7 +28,7 @@
   width: 100%;
   overflow: hidden;
   top: 0;
-  background-color: #333;
+  background-color: $main-color;
   z-index: 999;
 
   li {
@@ -34,9 +46,10 @@
 }
 
 // ******************************************
-// ************* MIDDLE STYLING *************
+// ************* CENTER CONTENT *************
 // ******************************************
 
+// This CSS is heavily inspired from the internet to make the background of the list look like paper
 #notebook-paper {
   width:500px;
   height:622px;
@@ -49,10 +62,9 @@
   padding-right:5px;
   overflow:hidden;
   border-radius:5px;
-  -webkit-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-  -moz-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-  -ms-box-shadow:3px 3px 3px rgba(0,0,0,.2),0px 0px 6px rgba(0,0,0,.2);
-  box-shadow:5px 5px 5px rgba(0,0,0,.4),0px 0px 7px rgba(0,0,0,.3);
+
+  // Drawing shadow using Mixin
+  @include shadow(5px);
 
     &:before {
       content:'';
@@ -63,7 +75,7 @@
       left:60px;
       height:100%;
       width: 1px;
-      background:#db4034;
+      background: $notebook-line;
     }
 
   h3 {
