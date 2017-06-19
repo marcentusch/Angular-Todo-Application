@@ -52,8 +52,6 @@ export class TodoComponent {
           return todo;
         }
       });
-      console.log(this.aListOfTodos);
-      console.log("Data has been read from the server.");
     });
   }
 
@@ -68,7 +66,7 @@ export class TodoComponent {
   // We get the data from HTML form(formData). To be created as a todo object later..
   onCreate(formData){
     //     this.aListOfTodos.push({todoCML: formData.get('todo').value, done: false}); // adds the todo directly to the list, instead of getting it form database
-      this.todoService.postTodo(formData.get('todo').value).subscribe(
+      this.todoService.postTodo(formData.get('addTodo').value).subscribe(
         () => {
           this.onRead();
         }
