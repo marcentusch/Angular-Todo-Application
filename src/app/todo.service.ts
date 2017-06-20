@@ -21,7 +21,7 @@ postTodo(todoCML): Observable < any > {
   return this.http.post(this.url, data)
     .map(
       (response: Response) => {
-        console.log(response);
+        console.log("What is this, I don't even - " + response);
         return response;
       } 
     );

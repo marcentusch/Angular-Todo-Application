@@ -218,9 +218,10 @@ li:hover .listIcons, #addButton {
   transform: rotate(10deg);
 
   @media screen and (max-width: 806px){
-    top: -40px;
+    top: 40px;
     right: 20%;
     transform: scale(0.3);
+    border: 10px red solid;
   }
 
 }

@@ -140,8 +140,9 @@ li:hover .listIcons, #addButton {
   transform: rotate(10deg); }
   @media screen and (max-width: 806px) {
     #sticky-logo {
-      top: -40px;
+      top: 40px;
       right: 20%;
-      transform: scale(0.3); } }
+      transform: scale(0.3);
+      border: 2px red solid; } }
 
 /*# sourceMappingURL=style.css.map */
